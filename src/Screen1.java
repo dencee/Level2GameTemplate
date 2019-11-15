@@ -2,7 +2,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -12,12 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -55,7 +50,7 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         
         bgColor = Color.GREEN;
         
-        labelStory = new JLabel( "Change backgroun color to A, B, or C" );
+        labelStory = new JLabel( "Change background color to A, B, or C" );
         labelStory.setFont( new Font( "Tahoma", ( Font.BOLD | Font.ITALIC ), 24 ) );
 
         button1 = new JButton( "A" );
