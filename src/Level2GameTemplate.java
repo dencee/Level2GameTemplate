@@ -11,10 +11,10 @@ public class Level2GameTemplate implements KeyListener {
     Screen screen2;
     Screen screen3;
     Screen screen4;
+    Screen screen5;
 
     public Level2GameTemplate() {
         frame = new JFrame();
-        frame.setPreferredSize( new Dimension( Screen.WIDTH, Screen.HEIGHT ) );
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.setVisible( true );
         frame.addKeyListener( this );
@@ -23,6 +23,7 @@ public class Level2GameTemplate implements KeyListener {
         screen2 = new Screen2( this );
         screen3 = new Screen3( this );
         screen4 = new Screen4( this );
+        screen5 = new Screen5( this );
         
         currentScreen = screen1;
         changeScreen( screen1 );
@@ -53,6 +54,9 @@ public class Level2GameTemplate implements KeyListener {
                 changeScreen( screen4 );
                 System.out.println( currentScreen );
             } else if( currentScreen == screen4 ) {
+                changeScreen( screen5 );
+                System.out.println( currentScreen );
+            } else if( currentScreen == screen5 ) {
                 changeScreen( screen1 );
                 System.out.println( currentScreen );
             }

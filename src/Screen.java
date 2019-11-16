@@ -26,6 +26,7 @@ public class Screen extends JPanel {
     public BufferedImage alien;
     public BufferedImage alienSmall;
     public BufferedImage infinityCur;
+    public BufferedImage background1;
     
     JFrame frame;
     GridBagConstraints c;
@@ -39,13 +40,14 @@ public class Screen extends JPanel {
         visual = new Visual();
         c = new GridBagConstraints();
         
-        frame.setPreferredSize( new Dimension( Screen.WIDTH, Screen.HEIGHT ) );
+        this.setPreferredSize( new Dimension( Screen.WIDTH, Screen.HEIGHT ) );
         
         try {
             infinityCur = ImageIO.read(this.getClass().getResourceAsStream("infinity_gauntlet1.png"));
             spaceShip = ImageIO.read(this.getClass().getResourceAsStream("shipUp.png"));
             alien = ImageIO.read(this.getClass().getResourceAsStream("enemy.png"));
             alienSmall = ImageIO.read(this.getClass().getResourceAsStream("enemy_small.png"));
+            background1 = ImageIO.read(this.getClass().getResourceAsStream("gamebackground.jpg"));
         } catch( IOException e ) {
             System.out.println( "ERROR: unable to load image files" );
         }
