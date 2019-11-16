@@ -1,12 +1,15 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -37,6 +40,9 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
     int spaceShipHeight;
     Color bgColor;
 
+    Cursor originalCursor;
+    Cursor newCursor;
+    
     public Screen1(Level2GameTemplate game) {
         super( game.frame );
         this.game = game;
@@ -49,6 +55,10 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         this.setLayout( new BorderLayout() );
         
         bgColor = Color.GREEN;
+        
+        originalCursor = game.frame.getCursor();
+        newCursor = Toolkit.getDefaultToolkit().createCustomCursor( infinityCur, new Point(0, 0), "inf cursor");
+        game.frame.setCursor( newCursor );
         
         labelStory = new JLabel( "Change background color to A, B, or C" );
         labelStory.setFont( new Font( "Tahoma", ( Font.BOLD | Font.ITALIC ), 24 ) );
@@ -68,6 +78,7 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         textField = new JTextField( 20 );
         textField.setText( "<Here is your fate>" );
         textField.setEditable( false );
+        textField.setFocusable( false );
 
         a = new JPanel();
         a.setLayout( new GridBagLayout() );
@@ -89,6 +100,11 @@ public class Screen1 extends Screen implements MouseMotionListener, ActionListen
         this.add( a, BorderLayout.SOUTH );
         game.frame.pack();
         this.repaint();
+    }
+    
+    public void cleanUp() {
+        super.cleanUp();
+        game.frame.setCursor( originalCursor );
     }
 
     public void addStoryLine() {

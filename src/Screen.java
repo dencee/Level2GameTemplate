@@ -25,6 +25,7 @@ public class Screen extends JPanel {
     public BufferedImage spaceShip;
     public BufferedImage alien;
     public BufferedImage alienSmall;
+    public BufferedImage infinityCur;
     
     JFrame frame;
     GridBagConstraints c;
@@ -41,6 +42,7 @@ public class Screen extends JPanel {
         frame.setPreferredSize( new Dimension( Screen.WIDTH, Screen.HEIGHT ) );
         
         try {
+            infinityCur = ImageIO.read(this.getClass().getResourceAsStream("infinity_gauntlet1.png"));
             spaceShip = ImageIO.read(this.getClass().getResourceAsStream("shipUp.png"));
             alien = ImageIO.read(this.getClass().getResourceAsStream("enemy.png"));
             alienSmall = ImageIO.read(this.getClass().getResourceAsStream("enemy_small.png"));

@@ -24,6 +24,7 @@ public class Level2GameTemplate implements KeyListener {
         screen3 = new Screen3( this );
         screen4 = new Screen4( this );
         
+        currentScreen = screen1;
         changeScreen( screen1 );
     }
     
